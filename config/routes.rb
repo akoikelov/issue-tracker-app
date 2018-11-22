@@ -7,7 +7,9 @@ Rails.application.routes.draw do
     unlocks: 'users/unlocks'
   }
 
-  root 'index#index'
+  authenticate :user do
+    root 'index#index'
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
