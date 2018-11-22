@@ -13,4 +13,14 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
+//= require 'js/vendor/jquery-2.1.4.min'
+//= require 'js/popper.min'
+//= require 'js/plugins'
+//= require 'js/main'
+//= require 'js/lib/chart-js/Chart.bundle'
+//= require 'js/dashboard'
+//= require 'js/widgets'
+//= require 'js/lib/vector-map/jquery.vmap'
+//= require 'js/lib/vector-map/jquery.vmap.min'
+//= require 'js/lib/vector-map/jquery.vmap.sampledata'
+//= require 'js/lib/vector-map/country/jquery.vmap.world'
