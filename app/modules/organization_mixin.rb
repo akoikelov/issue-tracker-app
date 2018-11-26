@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-module OrganizationHelper
+module OrganizationMixin
+
   def self.included(base)
     base.before_action :check_organization
   end
@@ -9,7 +10,7 @@ module OrganizationHelper
 
   def check_organization
     unless belongs_to_organization?
-
+      redirect_to organization_path
     end
   end
 

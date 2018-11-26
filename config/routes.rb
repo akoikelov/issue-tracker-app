@@ -9,6 +9,11 @@ Rails.application.routes.draw do
 
   authenticate :user do
     root 'index#index'
+
+    resource :organization do
+      get 'create'
+    end
+
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -1,5 +1,5 @@
 class IndexController < ApplicationController
-  include OrganizationHelper
+  include OrganizationMixin
 
   layout 'application'
 
