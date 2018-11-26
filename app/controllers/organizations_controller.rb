@@ -1,5 +1,7 @@
-class OrganizationsController < ApplicationController
-  def create
+# frozen_string_literal: true
 
-  end
+class OrganizationsController < ApplicationController
+  def new; end
+
+  def create; end
 end

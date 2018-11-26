@@ -9,10 +9,7 @@ Rails.application.routes.draw do
 
   authenticate :user do
     root 'index#index'
-
-    resource :organization do
-      get 'create'
-    end
+    resource :organization, only: [:new, :create]
 
   end
 

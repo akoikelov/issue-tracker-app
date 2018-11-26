@@ -10,7 +10,7 @@ module OrganizationMixin
 
   def check_organization
     unless belongs_to_organization?
-      redirect_to organization_path
+      redirect_to new_organization_path
     end
   end
 
