@@ -1,10 +1,6 @@
-# frozen_string_literal: true
+class BaseController < ApplicationController
 
-module OrganizationMixin
-
-  def self.included(base)
-    base.before_action :check_organization
-  end
+  before_action :check_organization
 
   private
 

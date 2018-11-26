@@ -1,5 +1,4 @@
-class IndexController < ApplicationController
-  include OrganizationMixin
+class IndexController < BaseController
 
   layout 'application'
 
