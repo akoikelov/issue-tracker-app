@@ -1,4 +1,5 @@
 class IndexController < ApplicationController
+  include OrganizationHelper
 
   layout 'application'
 
