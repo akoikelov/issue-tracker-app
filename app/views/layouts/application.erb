@@ -14,27 +14,27 @@
       <div id="main-menu" class="main-menu collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li>
-            <a href="#">Главная</a>
+            <a href="#">Main</a>
           </li>
           <li>
-            <a href="#">Пользователи</a>
+            <a href="#">Users</a>
           </li>
           <li>
-            <a href="#">Проекты</a>
+            <a href="#">Projects</a>
           </li>
           <li>
-            <a href="#">Задачи</a>
+            <a href="#">Issues</a>
           </li>
           <li class="menu-item-has-children dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Настройки</a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
             <ul class="sub-menu children dropdown-menu">
-              <li><a href="#">Статусы проектов</a></li>
-              <li><a href="#">Статусы задач</a></li>
-              <li><a href="#">Роли пользователей</a></li>
+              <li><a href="#">Projects statuses</a></li>
+              <li><a href="#">Issues statuses</a></li>
+              <li><a href="#">Users roles</a></li>
             </ul>
           </li>
           <li>
-            <a href="#">Мой профиль</a>
+            <a href="#">My profile</a>
           </li>
         </ul>
       </div>
@@ -59,7 +59,7 @@
             <div class="user-menu dropdown-menu">
               <%= link_to destroy_user_session_path, :method => :delete, :data => {:confirm => 'Уверены?'},
                           :class => "nav-link" do %>
-                <i class="fa fa-power-off"></i> Выход
+                <i class="fa fa-power-off"></i> Logout
               <% end %>
             </div>
           </div>
