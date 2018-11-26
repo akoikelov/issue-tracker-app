@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :organization
+  belongs_to :employee
 
   mount_uploader :avatar, UserAvatarUploader
 
