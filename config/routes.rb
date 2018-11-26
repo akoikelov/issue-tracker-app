@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   authenticate :user do
     root 'index#index'
-    resource :organization, only: [:new, :create]
+    resource :organization, only: %i[new create]
 
   end
 
