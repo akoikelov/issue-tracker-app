@@ -9,7 +9,7 @@ module Organizations
       if organization.save
         organization.employees.create(user: context.user)
 
-        context.success_msg = "An organization created!"
+        context.success = "An organization created!"
         context.organization = organization
       else
         context.fail!

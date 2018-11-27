@@ -13,7 +13,7 @@ class OrganizationsController < ApplicationController
 
     if result.success?
       session[:bto] = true
-      flash[:success_msg] = result.success_msg
+      flash[:success] = result.success
 
       redirect_to root_path
     else
