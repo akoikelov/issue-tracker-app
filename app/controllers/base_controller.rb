@@ -1,5 +1,7 @@
 class BaseController < ApplicationController
 
+  layout 'application'
+
   before_action :check_organization
 
   private
@@ -9,9 +11,8 @@ class BaseController < ApplicationController
   end
 
   def belongs_to_organization?
-    unless session[:bto].nil?
-      session[:bto] = if !current_user.organization.nil? || current_user.employees.count > 0
-                      end
+    if session[:bto].nil?
+      session[:bto] = !current_user.organization.nil? || current_user.employees.count > 0
     end
 
     session[:bto]

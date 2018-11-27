@@ -5,5 +5,26 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new
   end
 
-  def create; end
+  def create
+    result = Organizations::Create.call(
+      params: organization_params,
+      user: current_user
+    )
+
+    if result.success?
+      session[:bto] = true
+      flash[:success_msg] = result.success_msg
+
+      redirect_to root_path
+    else
+      render 'new'
+    end
+
+  end
+
+  private
+
+  def organization_params
+    params.require(:organization).permit(:title, :logo)
+  end
 end
