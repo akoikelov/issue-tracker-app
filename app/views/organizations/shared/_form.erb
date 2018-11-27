@@ -1,0 +1,16 @@
+<%= form_for @organization, url: {:action => "create"} do |f| %>
+
+  <div class="form-group">
+    <%= f.label :title %><br/>
+    <%= f.text_field :title, autofocus: true, autocomplete: "title", :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :logo %><br/>
+    <%= f.file_field :logo, accept: 'image/jpeg,image/gif,image/png', autocomplete: "logo" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Create", :class => "btn btn-success btn-flat m-b-30 m-t-30" %>
+  </div>
+<% end %>
