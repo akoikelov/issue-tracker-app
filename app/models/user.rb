@@ -10,7 +10,7 @@ class User < ApplicationRecord
   mount_uploader :avatar, UserAvatarUploader
   
   def is_organization_owner?(organization_id)
-    !organization.nil? && organization.id == organization_id
+    organization.present? && organization.id == organization_id
   end
 
 end

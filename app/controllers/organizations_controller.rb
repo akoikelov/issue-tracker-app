@@ -17,6 +17,7 @@ class OrganizationsController < ApplicationController
 
       redirect_to root_path
     else
+      flash[:error] = result.error
       render 'new'
     end
 

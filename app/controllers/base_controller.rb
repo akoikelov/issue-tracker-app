@@ -12,7 +12,7 @@ class BaseController < ApplicationController
 
   def belongs_to_organization?
     if session[:bto].nil?
-      session[:bto] = !current_user.organization.nil? || current_user.employees.count > 0
+      session[:bto] = current_user.organization.present? || current_user.employees.count > 0
     end
 
     session[:bto]
