@@ -7,6 +7,11 @@ class User < ApplicationRecord
   has_one :organization
   has_many :employees
 
+  has_many :organizations, through: :employees
+
+  alias_attribute :work_organizations, :organizations
+  alias_attribute :own_organization, :organization
+
   mount_uploader :avatar, UserAvatarUploader
   
   def is_organization_owner?(organization_id)

@@ -1,5 +1,7 @@
 class System::DashboardController < BaseController
 
-  def index; end
+  def index
+
+  end
 
 end
