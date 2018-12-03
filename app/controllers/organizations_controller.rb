@@ -2,9 +2,7 @@
 
 class OrganizationsController < ApplicationController
 
-  def index
-
-  end
+  def index; end
 
   def new
     @organization = Organization.new
@@ -29,6 +27,17 @@ class OrganizationsController < ApplicationController
   end
 
   def choose
+    result = Organizations::Choose.call(params: choose_params)
+
+    if result.success?
+      session[:chosen_organization_id] = result.chosen_organization_id
+      session[:success] = result.success
+
+      redirect_to root_path
+    else
+      flash[:error] = result.error
+      render 'index'
+    end
 
   end
 
@@ -36,5 +45,9 @@ class OrganizationsController < ApplicationController
 
   def organization_params
     params.require(:organization).permit(:title, :logo)
+  end
+
+  def choose_params
+    params.permit(:organization_id)
   end
 end
