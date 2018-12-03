@@ -9,7 +9,10 @@ Rails.application.routes.draw do
 
   authenticate :user do
     root to: redirect('/system/dashboard')
-    resource :organization, only: %i[new create]
+
+    resources :organizations, only: %i[new create index] do
+      post :choose, on: :member
+    end
 
     namespace 'system' do
       resources :dashboard, only: %i[index]

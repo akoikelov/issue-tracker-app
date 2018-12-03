@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 class OrganizationsController < ApplicationController
+
+  def index
+
+  end
+
   def new
     @organization = Organization.new
   end
@@ -12,7 +17,7 @@ class OrganizationsController < ApplicationController
     )
 
     if result.success?
-      session[:bto] = true
+      session[:chosen_organization_id] = result.organization.id
       flash[:success] = result.success
 
       redirect_to root_path
