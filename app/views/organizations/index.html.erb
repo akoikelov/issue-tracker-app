@@ -7,7 +7,44 @@
       <strong class="card-title">Choose an organization</strong>
     </div>
     <div class="card-body">
+      <% if current_user.own_organization.nil? %>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-header">
+              <strong class="card-title mb-3">Have no organization yet?</strong>
+            </div>
+            <div class="card-body">
+              <div class="card-text text-sm-center">
+                <%= link_to new_organization_path, class: "btn btn-success btn-flat m-b-30 m-t-30" do %>
+                  Create an organization
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
 
+      <% for o in current_user.work_organizations %>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-header">
+              <strong class="card-title mb-3"><%= o.title %></strong>
+            </div>
+            <div class="card-body">
+              <div class="mx-auto d-block">
+                <img class="mx-auto d-block" src="<%= o.logo.url %>" alt="">
+              </div>
+              <hr>
+              <div class="card-text text-sm-center">
+                <%= form_tag(choose_organizations_path) do |f| %>
+                  <%= hidden_field_tag :organization_id, o.id %>
+                  <%= submit_tag "Choose", :class => "btn btn-success btn-flat m-b-30 m-t-30" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 <% end %>

@@ -28,6 +28,10 @@ class OrganizationsController < ApplicationController
 
   end
 
+  def choose
+
+  end
+
   private
 
   def organization_params
