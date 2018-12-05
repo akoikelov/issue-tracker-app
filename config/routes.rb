@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       resources :dashboard, only: %i[index]
       resources :profile, only: %i[index] do
         collection do
-          put '', action: :update, as: 'update'
+          patch '', action: :update, as: 'update'
         end
       end
     end

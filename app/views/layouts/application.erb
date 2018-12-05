@@ -65,7 +65,11 @@
           <div class="user-area dropdown float-right">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                aria-expanded="false">
-              <img class="user-avatar rounded-circle" src="<%= image_path('avatar/1.jpg') %>" alt="User Avatar">
+              <img class="user-avatar" src="
+                <% if current_user.present? and current_user.avatar.present? %>
+                  <%= current_user.avatar.url %>
+                <% else %><%= image_path('avatar/1.jpg') %>
+                <% end %>" alt="User Avatar">
             </a>
 
             <div class="user-menu dropdown-menu">

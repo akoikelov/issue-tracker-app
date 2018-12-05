@@ -1,0 +1,21 @@
+<%= form_for current_user, url: {:action => "update"} do |f| %>
+
+  <div class="form-group">
+    <%= f.label :first_name %><br/>
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :last_name %><br/>
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :avatar %><br/>
+    <%= f.file_field :avatar, accept: 'image/jpeg,image/gif,image/png', autocomplete: "avatar" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update", :class => "btn btn-success btn-flat m-b-30 m-t-30" %>
+  </div>
+<% end %>
