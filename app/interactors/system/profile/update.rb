@@ -1,5 +1,4 @@
-class System::Profile::Update
-  include Interactor
+class System::Profile::Update < BaseInteractor
 
   def call
     if user.update_attributes(params)
@@ -7,14 +6,6 @@ class System::Profile::Update
     else
       context.fail!(error: 'Could not update profile!')
     end
-  end
-
-  def params
-    context.params
-  end
-
-  def user
-    context.user
   end
 
 end

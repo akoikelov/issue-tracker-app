@@ -1,5 +1,4 @@
-class Organizations::Create
-  include Interactor
+class Organizations::Create < BaseInteractor
 
   def call
     organization = Organization.new(params)
@@ -13,14 +12,6 @@ class Organizations::Create
     else
       context.fail!(error: 'Could not to create an organization!')
     end
-  end
-
-  def params
-    context.params
-  end
-
-  def user
-    context.user
   end
 
 end

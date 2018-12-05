@@ -1,5 +1,4 @@
-class Organizations::Choose
-  include Interactor
+class Organizations::Choose < BaseInteractor
 
   def call
     id = params[:id]
@@ -10,14 +9,6 @@ class Organizations::Choose
       context.fail!(error: 'You have chosen an invalid organization!')
     end
 
-  end
-
-  def params
-    context.params
-  end
-
-  def user
-    context.user
   end
 
 end
