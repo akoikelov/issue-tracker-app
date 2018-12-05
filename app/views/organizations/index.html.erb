@@ -37,7 +37,6 @@
               <hr>
               <div class="card-text text-sm-center">
                 <%= form_tag(choose_organizations_path(o.id)) do |f| %>
-                  <%= hidden_field_tag :organization_id, o.id %>
                   <%= submit_tag "Choose", :class => "btn btn-success btn-flat m-b-30 m-t-30" %>
                 <% end %>
               </div>

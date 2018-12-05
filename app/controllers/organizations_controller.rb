@@ -27,7 +27,8 @@ class OrganizationsController < ApplicationController
   end
 
   def choose
-    result = Organizations::Choose.call(params: choose_params)
+    result = Organizations::Choose.call(params: choose_params,
+                                        user: current_user)
 
     if result.success?
       session[:chosen_organization_id] = result.chosen_organization_id
@@ -48,6 +49,6 @@ class OrganizationsController < ApplicationController
   end
 
   def choose_params
-    params.permit(:organization_id)
+    params.permit(:id)
   end
 end

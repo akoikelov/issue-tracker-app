@@ -18,4 +18,8 @@ class User < ApplicationRecord
     organization.present? && organization.id == organization_id
   end
 
+  def belongs_to_organization?(organization_id)
+    work_organizations.ids.include? organization_id.to_i
+  end
+
 end
