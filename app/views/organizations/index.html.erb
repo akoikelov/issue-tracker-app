@@ -7,6 +7,8 @@
       <strong class="card-title">Choose an organization</strong>
     </div>
     <div class="card-body">
+      <%= render 'shared/flash' unless flash.empty? %>
+
       <% if current_user.own_organization.nil? %>
         <div class="col-md-4">
           <div class="card">
