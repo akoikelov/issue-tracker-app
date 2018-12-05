@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_05_135054) do
+ActiveRecord::Schema.define(version: 2018_12_05_152026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,9 @@ ActiveRecord::Schema.define(version: 2018_12_05_135054) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "role_id"
     t.index ["organization_id"], name: "index_employees_on_organization_id"
+    t.index ["role_id"], name: "index_employees_on_role_id"
     t.index ["user_id"], name: "index_employees_on_user_id"
   end
 
@@ -31,6 +33,14 @@ ActiveRecord::Schema.define(version: 2018_12_05_135054) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_organizations_on_user_id", unique: true
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "title"
+    t.bigint "organization_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_roles_on_organization_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -54,6 +64,8 @@ ActiveRecord::Schema.define(version: 2018_12_05_135054) do
   end
 
   add_foreign_key "employees", "organizations"
+  add_foreign_key "employees", "roles"
   add_foreign_key "employees", "users"
   add_foreign_key "organizations", "users"
+  add_foreign_key "roles", "organizations"
 end
