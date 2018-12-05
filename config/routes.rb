@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     root to: redirect('/system/dashboard')
 
     resources :organizations, only: %i[new create index] do
-      post :choose, on: :collection
+      collection do
+        post ':id/choose', action: :choose, as: 'choose'
+      end
     end
 
     namespace 'system' do
