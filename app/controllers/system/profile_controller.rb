@@ -21,7 +21,7 @@ class System::ProfileController < BaseController
   private
 
   def profile_params
-    params.require(:user).permit(:first_name, :last_name, :avatar)
+    params.require(:user).permit(:first_name, :last_name, :avatar, :lat, :lng)
   end
 
 
