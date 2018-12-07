@@ -22,4 +22,8 @@ class User < ApplicationRecord
     work_organizations.ids.include? organization_id.to_i
   end
 
+  def location_set?
+    lat.present? && lng.present?
+  end
+
 end
