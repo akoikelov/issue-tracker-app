@@ -25,7 +25,13 @@ module System::ProfileHelper
       end
 
       @template.content_tag(:div) do
-        hidden_field('lat', value: lat) + hidden_field('lng', value: lng)
+        gmaps_key = Rails.application.config.gmaps_key
+
+        fields = hidden_field('lat', value: lat, 'data-name': 'lat') + hidden_field('lng', value: lng, 'data-name': 'lng')
+        map = @template.content_tag(:div, id: 'map', 'data-gmaps-key': gmaps_key) {}
+        profile_script = @template.content_tag(:script, src: '/assets/system/profile.js') {}
+
+        fields + map + raw(profile_script)
       end
 
     end

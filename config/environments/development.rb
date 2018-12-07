@@ -64,4 +64,5 @@ Rails.application.configure do
   }
 
   config.reload_classes_only_on_change = false
+  config.gmaps_key = 'AIzaSyDqErXElToMnMZ30-Kpgi5ulLiv5vfNJqw'
 end
