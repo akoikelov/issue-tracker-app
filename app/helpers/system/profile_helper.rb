@@ -28,10 +28,11 @@ module System::ProfileHelper
         gmaps_key = Rails.application.config.gmaps_key
 
         fields = hidden_field('lat', value: lat, 'data-name': 'lat') + hidden_field('lng', value: lng, 'data-name': 'lng')
-        map = @template.content_tag(:div, id: 'map', 'data-gmaps-key': gmaps_key) {}
+        map = @template.content_tag(:div, class: 'map', id: 'map', width: '300px', height: '300px') {}
         profile_script = @template.content_tag(:script, src: '/assets/system/profile.js') {}
+        gmaps_script = @template.content_tag(:script, src: raw("https://maps.googleapis.com/maps/api/js?key=#{gmaps_key}&callback=initMap")) {}
 
-        fields + map + raw(profile_script)
+        fields + map + raw(profile_script + gmaps_script)
       end
 
     end
