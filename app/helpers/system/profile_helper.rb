@@ -25,7 +25,7 @@ module System::ProfileHelper
       end
 
       @template.content_tag(:div) do
-        gmaps_key = Rails.application.config.gmaps_key
+        gmaps_key = ENV['GOOGLE_MAPS_KEY']
 
         fields = hidden_field('lat', value: lat, 'data-name': 'lat') + hidden_field('lng', value: lng, 'data-name': 'lng')
         map = @template.content_tag(:div, class: 'map', id: 'map', width: '300px', height: '300px') {}
