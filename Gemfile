@@ -47,6 +47,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'letter_opener'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
@@ -64,9 +65,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'carrierwave', '~> 1.0'
+gem 'ckeditor'
 gem 'devise'
+gem 'dotenv-rails'
 gem 'interactor-rails', '~> 2.0'
 gem 'paper_trail'
 gem 'pg'
-gem 'ckeditor'
-gem 'dotenv-rails'
