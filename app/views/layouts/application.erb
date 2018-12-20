@@ -13,33 +13,37 @@
 
       <div id="main-menu" class="main-menu collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li>
-            <%= link_to system_dashboard_index_path do %>
-              Dashboard
+          <% if session[:chosen_organization_id].present? %>
+            <li>
+              <%= link_to system_dashboard_index_path do %>
+                Dashboard
+              <% end %>
+            </li>
+            <li>
+              <a href="#">Projects</a>
+            </li>
+            <li>
+              <a href="#">Issues</a>
+            </li>
+            <% if session[:chosen_organization_owner].present? %>
+              <li>
+                <a href="#">Employees</a>
+              </li>
+              <li class="menu-item-has-children dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
+                <ul class="sub-menu children dropdown-menu">
+                  <li><a href="#">Projects statuses</a></li>
+                  <li><a href="#">Issues statuses</a></li>
+                  <li><a href="#">Users roles</a></li>
+                </ul>
+              </li>
+              <li>
+                <%= link_to system_profile_index_path do %>
+                  My profile
+                <% end %>
+              </li>
             <% end %>
-          </li>
-          <li>
-            <a href="#">Employees</a>
-          </li>
-          <li>
-            <a href="#">Projects</a>
-          </li>
-          <li>
-            <a href="#">Issues</a>
-          </li>
-          <li class="menu-item-has-children dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
-            <ul class="sub-menu children dropdown-menu">
-              <li><a href="#">Projects statuses</a></li>
-              <li><a href="#">Issues statuses</a></li>
-              <li><a href="#">Users roles</a></li>
-            </ul>
-          </li>
-          <li>
-            <%= link_to system_profile_index_path do %>
-              My profile
-            <% end %>
-          </li>
+          <% end %>
           <li>
             <hr>
           </li>

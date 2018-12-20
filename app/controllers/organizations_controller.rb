@@ -32,6 +32,7 @@ class OrganizationsController < ApplicationController
 
     if result.success?
       session[:chosen_organization_id] = result.chosen_organization_id
+      session[:chosen_organization_owner] = result.chosen_organization_owner
       session[:success] = result.success
 
       redirect_to root_path
