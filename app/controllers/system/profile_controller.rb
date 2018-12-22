@@ -1,7 +1,6 @@
 class System::ProfileController < BaseController
 
-  def index
-  end
+  def index; end
 
   def update
     result = System::Profile::Update.call(params: profile_params,
