@@ -1,0 +1,15 @@
+<%- content_for :title do %>
+  Accept invite
+<% end %>
+<%- content_for :right_bar do %>
+  <div class="card">
+    <div class="card-header">
+      <strong class="card-title">Accept invite</strong>
+    </div>
+    <div class="card-body">
+      <div class="card-body">
+        <%= render 'shared/flash' unless flash.empty? %>
+      </div>
+    </div>
+  </div>
+<% end %>

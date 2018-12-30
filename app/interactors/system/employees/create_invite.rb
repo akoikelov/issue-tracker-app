@@ -1,4 +1,4 @@
-class System::Employees::InviteEmployee < BaseInteractor
+class System::Employees::CreateInvite < BaseInteractor
 
   def call
     organization = Organization.find current_org_id

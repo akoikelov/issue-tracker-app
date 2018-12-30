@@ -10,7 +10,7 @@ class System::EmployeesController < OwnerRequiredController
   end
 
   def invite
-    result = System::Employees::InviteEmployee.call(params: invite_params,
+    result = System::Employees::CreateInvite.call(params: invite_params,
                                                     current_org_id: current_organization_id)
 
     if result.success?
