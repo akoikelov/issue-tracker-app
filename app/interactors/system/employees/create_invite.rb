@@ -4,7 +4,7 @@ class System::Employees::CreateInvite < BaseInteractor
     organization = Organization.find current_org_id
     email = params[:email]
     resend = params[:resend] == '1'
-    employee_exists = organization.employee_users.exists?(email: email)
+    employee_exists = organization.employee_exists?(email)
     check_invite = Invite.find_by(email: email, organization: organization)
     user_exists = User.exists?(email: email)
     error_msg = nil

@@ -14,11 +14,18 @@ class System::Employees::AcceptInvite < BaseInteractor
         error_msg = 'Organization does not exist'
       else
         organization = invite.organization
-        employee = organization.employees.build(user: user,
-                                                role: invite.role)
 
-        unless employee.save
-          error_msg = 'Could not to accept invite'
+        if organization.employee_exists?(invite.email)
+          error_msg = 'Employee with a given email already exists'
+        else
+          employee = organization.employees.build(user: user,
+                                                  role: invite.role)
+
+          if employee.save
+            invite.destroy
+          else
+            error_msg = 'Could not to accept invite'
+          end
         end
       end
     else

@@ -12,4 +12,8 @@ class Organization < ApplicationRecord
 
   validates :title, presence: true
 
+  def employee_exists?(email)
+    employee_users.exists?(email: email)
+  end
+
 end
