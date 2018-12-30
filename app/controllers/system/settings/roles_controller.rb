@@ -1,7 +1,7 @@
 class System::Settings::RolesController < OwnerRequiredController
 
   def index
-    @roles = Role.where(organization_id: current_organization_id).all
+    @roles = Role.where(organization_id: current_organization_id).order(:title).page(params[:page])
   end
 
   def new
