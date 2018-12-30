@@ -9,4 +9,8 @@ class BaseInteractor
     context.user
   end
 
+  def current_org_id
+    context.current_org_id
+  end
+
 end

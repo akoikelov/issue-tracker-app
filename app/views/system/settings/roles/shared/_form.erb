@@ -1,0 +1,12 @@
+<%= form_for @role, url: {:action => "create"} do |f| %>
+
+  <div class="form-group">
+    <%= f.label :title %><br/>
+    <%= f.text_field :title, autofocus: true, autocomplete: "first_name", :class => "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Create", :class => "btn btn-success btn-flat m-b-30 m-t-30" %>
+  </div>
+
+<% end %>

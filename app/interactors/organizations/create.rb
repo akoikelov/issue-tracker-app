@@ -7,7 +7,7 @@ class Organizations::Create < BaseInteractor
     if organization.save
       organization.employees.create(user: user)
 
-      context.success = "An organization created!"
+      context.success = 'An organization created!'
       context.organization = organization
     else
       context.fail!(error: 'Could not to create an organization!')

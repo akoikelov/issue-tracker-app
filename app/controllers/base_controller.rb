@@ -21,4 +21,8 @@ class BaseController < ApplicationController
     end
   end
 
+  def current_organization_id
+    session[:chosen_organization_id]
+  end
+
 end

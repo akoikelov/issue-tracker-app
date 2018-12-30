@@ -1,0 +1,42 @@
+<%- content_for :title do %>
+  Roles
+<% end %>
+<%- content_for :right_bar do %>
+  <div class="card">
+    <div class="card-header">
+      <strong class="card-title">Users roles</strong>
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <p>
+          <%= render 'shared/flash' unless flash.empty? %>
+          <%= link_to new_system_settings_role_path, :class => 'btn btn-success' do %> New role <% end %>
+        </p>
+
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @roles.each {|role| %>
+            <tr>
+              <th scope="row"><%=  role.id  %></th>
+              <td><%= role.title %></td>
+              <td>
+                <%= link_to edit_system_settings_role_path(id: role.id) do %>
+                  Edit
+                <% end %>
+                <%= link_to system_settings_role_path(id: role.id), :method => :delete, :data => {:confirm => 'Sure?'} do %>
+                  Delete
+                <% end %>
+              </td>
+            </tr>
+        <%  } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% end %>

@@ -23,6 +23,9 @@ Rails.application.routes.draw do
           patch '', action: :update, as: 'update'
         end
       end
+      namespace 'settings' do
+        resources :roles, except: %i[show]
+      end
     end
 
   end

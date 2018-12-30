@@ -34,7 +34,11 @@
                 <ul class="sub-menu children dropdown-menu">
                   <li><a href="#">Projects statuses</a></li>
                   <li><a href="#">Issues statuses</a></li>
-                  <li><a href="#">Users roles</a></li>
+                  <li>
+                    <%= link_to system_settings_roles_path do %>
+                      Users roles
+                    <% end %>
+                  </li>
                 </ul>
               </li>
               <li>

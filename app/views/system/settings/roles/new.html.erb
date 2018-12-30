@@ -1,0 +1,16 @@
+<%- content_for :title do %>
+  Add role
+<% end %>
+<%- content_for :right_bar do %>
+  <div class="card">
+    <div class="card-header">
+      <strong class="card-title">Add role</strong>
+    </div>
+    <div class="card-body">
+      <div class="card-body">
+        <%= render 'shared/flash' unless flash.empty? %>
+        <%= render 'system/settings/roles/shared/form' %>
+      </div>
+    </div>
+  </div>
+<% end %>
