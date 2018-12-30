@@ -44,7 +44,16 @@ class System::Settings::RolesController < OwnerRequiredController
   end
 
   def destroy
+    role = Role.find params[:id]
+    result = System::Settings::Roles::Destroy.call(role: role)
 
+    if result.success?
+      flash[:success] = result.success
+    else
+      flash[:error] = result.error
+    end
+
+    redirect_to system_settings_roles_path
   end
 
   private
