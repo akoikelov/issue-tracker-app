@@ -1,0 +1,49 @@
+<%- content_for :title do %>
+  Employees
+<% end %>
+<%- content_for :right_bar do %>
+  <div class="card">
+    <div class="card-header">
+      <strong class="card-title">Employees</strong>
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <p>
+          <%= render 'shared/flash' unless flash.empty? %>
+          <%= link_to new_system_employee_path, :class => 'btn btn-success' do %> Invite employee <% end %>
+        </p>
+
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Email</th>
+          <th scope="col">Role</th>
+          <th scope="col">First name</th>
+          <th scope="col">Last name</th>
+          <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @employees.each {|employee| %>
+          <tr>
+            <th scope="row"><%=  employee.id  %></th>
+            <td><%= employee.user.email %></td>
+            <td><%= employee.role.title unless employee.role.nil? %></td>
+            <td><%= employee.user.first_name %></td>
+            <td><%= employee.user.last_name %></td>
+            <td>
+              <%= link_to edit_system_employee_path(id: employee.id) do %>
+                Edit
+              <% end %>
+              <%= link_to system_employee_path(id: employee.id), :method => :delete, :data => {:confirm => 'Sure?'} do %>
+                Delete
+              <% end %>
+            </td>
+          </tr>
+        <%  } %>
+        </tbody>
+      </table>
+      <%= paginate @employees %>
+    </div>
+  </div>
+<% end %>

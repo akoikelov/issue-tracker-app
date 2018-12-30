@@ -27,7 +27,9 @@
             </li>
             <% if session[:chosen_organization_owner].present? %>
               <li>
-                <a href="#">Employees</a>
+                <%= link_to system_employees_path do %>
+                  Employees
+                <% end %>
               </li>
               <li class="menu-item-has-children dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
