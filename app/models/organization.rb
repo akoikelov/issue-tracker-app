@@ -3,6 +3,9 @@ class Organization < ApplicationRecord
   has_many :employees
   has_many :roles
 
+  has_many :users, through: :employees
+
+  alias_attribute :employee_users, :users
   alias_attribute :owner, :user
 
   mount_uploader :logo, OrganizationLogoUploader
