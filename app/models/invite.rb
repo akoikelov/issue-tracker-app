@@ -1,5 +1,6 @@
 class Invite < ApplicationRecord
   belongs_to :organization
+  belongs_to :role
 
   before_create :set_token
 

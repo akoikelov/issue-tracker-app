@@ -23,7 +23,11 @@ Rails.application.routes.draw do
           patch '', action: :update, as: 'update'
         end
       end
-      resources :employees, except: %i[show]
+      resources :employees, except: %i[show create] do
+        collection do
+          post '/invite', action: :invite, as: 'invite'
+        end
+      end
 
       namespace 'settings' do
         resources :roles, except: %i[show]

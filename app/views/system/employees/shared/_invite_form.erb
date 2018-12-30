@@ -1,0 +1,19 @@
+<%= form_for @invite, url: invite_system_employees_path do |f| %>
+
+  <div class="form-group">
+    <%= f.label :email %><br/>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :role %><br/>
+    <%= f.select :role_id, options_for_select(Role.where(organization_id: @current_org_id).map{
+      |i| [i.title, i.id]
+    }), autofocus: true, :class => "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Invite', :class => "btn btn-success btn-flat m-b-30 m-t-30" %>
+  </div>
+
+<% end %>
