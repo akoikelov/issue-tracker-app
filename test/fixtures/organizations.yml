@@ -1,11 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  user: one
-  logo: MyString
-
-two:
-  title: MyString
-  user: two
-  logo: MyString
+one: {}
+# column: value
+#
+two: {}
+  # column: value

@@ -1,11 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  email: MyString
-  organization: one
-  expires_at: 2018-12-12
-
-two:
-  email: MyString
-  organization: two
-  expires_at: 2018-12-12
+one: {}
+# column: value
+#
+two: {}
+  # column: value
