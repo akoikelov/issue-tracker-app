@@ -26,7 +26,7 @@ class System::EmployeesController < OwnerRequiredController
   private
 
   def invite_params
-    params.require(:invite).permit(:email, :role_id)
+    params.require(:invite).permit(:email, :role_id, :resend)
   end
 
 end

@@ -2,12 +2,15 @@ class Invite < ApplicationRecord
   belongs_to :organization
   belongs_to :role
 
-  before_create :set_token
+  attr_accessor :resend
 
-  def set_token
-    if token.nil?
-      self.token = gen_token
-    end
+  EXPIRE_DAYS = 7
+
+  before_create :set_attrs
+
+  def set_attrs
+    self.token = gen_token
+    self.expires_at = Date.today + EXPIRE_DAYS
   end
 
   private
