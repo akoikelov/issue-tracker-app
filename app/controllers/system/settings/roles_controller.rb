@@ -10,7 +10,6 @@ class System::Settings::RolesController < OwnerRequiredController
 
   def create
     result = System::Settings::Roles::Create.call(params: role_params,
-                                                  user: current_user,
                                                   current_org_id: current_organization_id)
 
     if result.success?
@@ -25,11 +24,23 @@ class System::Settings::RolesController < OwnerRequiredController
   end
 
   def edit
-
+    @role = Role.find params[:id]
   end
 
   def update
+    @role = Role.find params[:id]
 
+    result = System::Settings::Roles::Update.call(params: role_params,
+                                                  role: @role)
+
+    if result.success?
+      flash[:success] = result.success
+
+      redirect_to system_settings_roles_path
+    else
+      flash[:error] = result.error
+      render 'edit'
+    end
   end
 
   def destroy

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe System::Settings::Role::Create, type: :interactor do
+RSpec.describe System::Settings::Roles::Update, type: :interactor do
   describe '.call' do
     pending "add some examples to (or delete) #{__FILE__}"
   end
