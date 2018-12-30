@@ -5,5 +5,8 @@
   You received this mail bcoz the organization "<%= @invite.organization.title %>" has invited you
 </p>
 <p>
-  Please follow this link to accept invite: <a href="#">Accept</a>
+  Please follow this link to accept invite:
+  <%= link_to accept_system_invites_url(token: @invite.token) do %>
+    Accept
+  <% end %>
 </p>

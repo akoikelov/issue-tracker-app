@@ -23,6 +23,12 @@ Rails.application.routes.draw do
           patch '', action: :update, as: 'update'
         end
       end
+      resources :invites, only: %i[] do
+        collection do
+          get '/:token/accept', action: :accept, as: 'accept'
+        end
+      end
+
       resources :employees, except: %i[show create] do
         collection do
           post '/invite', action: :invite, as: 'invite'
