@@ -6,26 +6,24 @@ class System::Employees::AcceptInvite < BaseInteractor
     error_msg = nil
 
     if invite.present?
+      organization = invite.organization
+
       if invite.email != user.email
         error_msg = 'This invite does not belong to you'
       elsif invite.expires_at - Date.today < 0
         error_msg = 'Your invite has expired'
-      elsif invite.organization.nil?
+      elsif organization.nil?
         error_msg = 'Organization does not exist'
+      elsif organization.employee_exists?(invite.email)
+        error_msg = 'Employee with a given email already exists'
       else
-        organization = invite.organization
+        employee = organization.employees.build(user: user,
+                                                role: invite.role)
 
-        if organization.employee_exists?(invite.email)
-          error_msg = 'Employee with a given email already exists'
+        if employee.save
+          invite.destroy
         else
-          employee = organization.employees.build(user: user,
-                                                  role: invite.role)
-
-          if employee.save
-            invite.destroy
-          else
-            error_msg = 'Could not to accept invite'
-          end
+          error_msg = 'Could not to accept invite'
         end
       end
     else
