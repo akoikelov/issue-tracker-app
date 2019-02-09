@@ -8,4 +8,10 @@ FactoryGirl.define do
     first_name FFaker::Name.first_name
     last_name FFaker::Name.last_name
   end
+
+  factory :organization do
+    title FFaker::Name.name
+    user
+  end
+
 end
