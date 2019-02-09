@@ -22,6 +22,14 @@ RSpec.describe Organizations::Create, type: :interactor do
       expect(context.organization.employees.count).to eq 1
     end
 
+    it 'when it creates an organization, it should set current user as owner' do
+      current_user = user
+
+      context = Organizations::Create.call(params: valid_params, user: current_user)
+      expect(context.success?).to eq true
+      expect(context.organization.owner).to eq current_user
+    end
+
     it 'when we pass empty title, it returns false' do
       params = {
         title: '',
