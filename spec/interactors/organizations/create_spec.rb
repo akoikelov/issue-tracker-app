@@ -1,7 +1,8 @@
-require 'spec_helper'
+require 'rails_helper'
 
 RSpec.describe Organizations::Choose, type: :interactor do
-  describe '.call' do
-    pending "add some examples to (or delete) #{__FILE__}"
+  describe 'Create an organization' do
+    xit 'when we pass all data, it returns success' do
+    end
   end
 end

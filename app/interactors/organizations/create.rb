@@ -5,7 +5,7 @@ class Organizations::Create < BaseInteractor
     organization.owner = user
 
     if organization.save
-      organization.employees.create(user: user)
+      organization.employees.create!(user: user)
 
       context.success = 'An organization created!'
       context.organization = organization
