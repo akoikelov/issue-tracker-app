@@ -16,9 +16,11 @@
 
 require 'factory_girl_rails'
 require 'rake'
+require 'fixture'
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
+  config.include FixtureHelper
 
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
