@@ -16,6 +16,7 @@ class OrganizationsController < ApplicationController
 
     if result.success?
       session[:chosen_organization_id] = result.organization.id
+      session[:chosen_organization_owner] = true
       flash[:success] = result.success
 
       redirect_to root_path
