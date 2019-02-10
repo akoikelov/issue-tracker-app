@@ -17,7 +17,7 @@ RSpec.describe Organizations::Choose, type: :interactor do
       expect(context.success?).to eq true
     end
 
-    it 'When we choose invalid organization we DONT belong to, it returns true' do
+    it 'When we choose invalid organization we DONT belong to, it returns false' do
       organization = create(:organization)
       active_user = create(:user,
                            email: 'otherfake@mail.com'
