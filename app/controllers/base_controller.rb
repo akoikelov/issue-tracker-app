@@ -15,7 +15,7 @@ class BaseController < ApplicationController
   end
 
   def check_organization_owner
-    unless current_user.is_organization_owner?(session[:chosen_organization_id])
+    unless current_user.is_organization_owner?(current_organization_id)
       flash[:access_error] = 'You have no permission to see this section!'
       redirect_to system_dashboard_index_path
     end
