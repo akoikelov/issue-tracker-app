@@ -9,9 +9,4 @@ FactoryGirl.define do
     last_name FFaker::Name.last_name
   end
 
-  factory :organization do
-    title FFaker::Name.name
-    user
-  end
-
 end

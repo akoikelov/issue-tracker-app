@@ -4,6 +4,7 @@ RSpec.describe Organizations::Choose, type: :interactor do
   describe 'Choose an organization' do
     it 'When we choose valid organization we belong to, it returns true' do
       organization = create(:organization)
+
       active_user = create(:user, 
                              email: 'otherfake@mail.com'
                            )
