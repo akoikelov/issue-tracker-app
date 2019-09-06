@@ -4,6 +4,7 @@ class System::Employees::AcceptInvite < BaseInteractor
   def call
     invite = Invite.find_by token: params[:token]
     error_msg = nil
+    invitation_accepted = false
 
     if invite.present?
       organization = invite.organization
@@ -12,8 +13,6 @@ class System::Employees::AcceptInvite < BaseInteractor
         error_msg = 'This invite does not belong to you'
       elsif invite.expires_at - Date.today < 0
         error_msg = 'Your invite has expired'
-      elsif organization.nil?
-        error_msg = 'Organization does not exist'
       elsif organization.employee_exists?(invite.email)
         error_msg = 'Employee with a given email already exists'
       else
@@ -22,6 +21,7 @@ class System::Employees::AcceptInvite < BaseInteractor
 
         if employee.save
           invite.destroy
+          invitation_accepted = true
         else
           error_msg = 'Could not to accept invite'
         end
@@ -30,7 +30,7 @@ class System::Employees::AcceptInvite < BaseInteractor
       error_msg = 'Invite not found'
     end
 
-    if error_msg.nil?
+    if invitation_accepted
       context.success = 'Invite successfully accepted!'
     else
       context.fail!(error: error_msg)
