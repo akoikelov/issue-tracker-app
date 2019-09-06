@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe System::Employees::CreateInvite, type: :interactor do
-  describe '.call' do
-    pending "add some examples to (or delete) #{__FILE__}"
+  describe 'Create invitation' do
+
   end
 end
