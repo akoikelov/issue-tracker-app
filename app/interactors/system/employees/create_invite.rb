@@ -8,6 +8,7 @@ class System::Employees::CreateInvite < BaseInteractor
     check_invite = Invite.find_by(email: email, organization: organization)
     user_exists = User.exists?(email: email)
     error_msg = nil
+    all_correct = false
 
     if employee_exists
       error_msg = 'Employee with a given email already exists'
@@ -15,9 +16,11 @@ class System::Employees::CreateInvite < BaseInteractor
       error_msg = 'Invite to a given email already sent'
     elsif not user_exists
       error_msg = 'User with a given email does not exist in the system'
+    else
+      all_correct = true
     end
 
-    if error_msg.nil?
+    if all_correct
       if resend and check_invite.present?
         check_invite.destroy
       end

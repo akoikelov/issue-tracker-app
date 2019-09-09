@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe System::Employees::AcceptInvite, type: :interactor do
   describe 'Accept invitation' do
-    it 'When we opens an invitation link with an non-existing token , it fails' do
+    it 'When user opens an invitation link with an non-existing token , it fails' do
       params = {
           token: "invalid_token"
       }
